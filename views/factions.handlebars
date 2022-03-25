@@ -1,0 +1,48 @@
+<table>
+    <tr>
+        <th colspan="{{columns}}" class="th_title">{{title}}</th>
+    </tr>
+    <tr>
+        <th class="th_category">Faction Name</th>
+        <th class="th_category">Acronym</th>
+        <th class="th_category"></th>
+    </tr>
+
+
+    <tr>
+        <form method="post" id="post_new_faction" class="icon_form">
+            <td><input type="text" id="form_faction_name" name="faction_name" placeholder="Starfleet" required></td>
+            <td><input type="text" id="form_faction_acronym" name="acronym" placeholder="SF" required></td>
+            <td>
+                <!-- ADD NEW FACTION -->
+                <input type="submit" name="New" value="ADD"></td>
+        </form>
+    </tr>
+
+
+
+    {{#each x}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{acronym}}</td>
+
+            <td>
+                <!-- UPDATE A SKILL-->
+                <form method="post" id="post_update_faction" class="icon_form">
+                    <input type="hidden" name="faction_id" value="{{faction_id}}">
+                    <input type="submit" name="Edit" value="EDIT">
+                </form>
+
+                <!-- DELETE A SKILL -->
+                <form method="post" id="post_delete_faction" class="icon_form">
+                    <input type="hidden" name="faction_id" value="{{faction_id}}">
+                    <input type="submit" name="Delete" value="&#10060">
+                </form>
+
+            </td>
+
+        </tr>
+    {{/each}}
+</table>
+
+<div id="factions_banner"><img src="factions.png"></div>

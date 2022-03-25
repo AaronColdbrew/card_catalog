@@ -1,0 +1,151 @@
+-- -------------------------------------------
+-- Create all tables.
+-- -------------------------------------------
+DROP TABLE IF EXISTS factions;
+CREATE TABLE set(
+	set_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	year INT NOT NULL
+);
+
+
+DROP TABLE IF EXISTS condition;
+CREATE TABLE condition(
+	condition_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+	acronym VARCHAR(2) NOT NULL,
+	name VARCHAR(10) NOT NULL,
+	definition VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS color;
+CREATE TABLE color(
+	color_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+	name VARCHAR(255) NOT NULL,
+);
+
+DROP TABLE IF EXISTS type;
+CREATE TABLE type(
+	type_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+	name VARCHAR(255) NOT NULL,
+);
+
+
+DROP TABLE IF EXISTS card;
+CREATE TABLE card(
+	card_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+	name VARCHAR(255) UNIQUE NOT NULL,
+	color INT,
+	set INT,
+	type INT,
+	condition INT,
+	FOREIGN KEY (color) REFERENCES color(color_id) ON DELETE SET NULL,
+	FOREIGN KEY (type) REFERENCES type(type_id) ON DELETE SET NULL,
+	FOREIGN KEY (set) REFERENCES set(set_id) ON DELETE SET NULL,
+	FOREIGN KEY (condition) REFERENCES condition(condition_id) ON DELETE SET NULL
+);
+
+-- -------------------------------------------
+-- Populate and describe the card conditions table.
+-- -------------------------------------------
+
+INSERT INTO condition(acronym, name, definition) VALUES ('NM', 'Near Mint', 'Cards graded at Near Mint have little to no damage. These cards still have their sheen. Minor corner whitening or surface clouding may be allowed if the damage is only seen under very close inspection.');
+INSERT INTO condition(acronym, name, definition) VALUES ('EX', 'Excellent', 'Cards graded at Excellent have minor wear, often from gentle play. Cards in this condition may have small amounts of whitening or border wear, light scratches, or small indents. Mild, widespread surface clouding or sheen disruption also fall under Excellent.');
+INSERT INTO condition(acronym, name, definition) VALUES ('VG', 'Very Good', 'Cards graded at Very Good have significant wear. Whitening around all edges, moderate surface damage, or larger sections of border wear fall under Very Good. This category also includes more noticeable tactile damage, such as larger indents, shallow bends, or small creases.');
+INSERT INTO condition(acronym, name, definition) VALUES ('G', 'Good', 'Cards graded at Good are tournament playable, but show extensive wear. This category includes heavy whitening around all edges, heavy surface scuffing or scratches, and large creases. Cards may also show moderate dirt build-up or widespread shallow indents.');
+DESCRIBE conditions;
+
+
+-- -------------------------------------------
+-- Populate and describe the card colors table.
+-- -------------------------------------------
+
+INSERT INTO color(name) VALUES ('Colorless');
+INSERT INTO color(name) VALUES ('Red');
+INSERT INTO color(name) VALUES ('Black');
+INSERT INTO color(name) VALUES ('White');
+INSERT INTO color(name) VALUES ('Blue');
+INSERT INTO color(name) VALUES ('Green');
+INSERT INTO color(name) VALUES ('Gold');
+DESCRIBE colors;
+
+
+-- -------------------------------------------
+-- Populate and describe the types table.
+-- -------------------------------------------
+
+INSERT INTO type(name) VALUES ('Instant');
+INSERT INTO type(name) VALUES ('Interrupt');
+INSERT INTO type(name) VALUES ('Enchantment');
+INSERT INTO type(name) VALUES ('Sorcery');
+INSERT INTO type(name) VALUES ('Enchant Creature');
+INSERT INTO type(name) VALUES ('Enchant Artifact');
+INSERT INTO type(name) VALUES ('Creature');
+INSERT INTO type(name) VALUES ('Land');
+INSERT INTO type(name) VALUES ('Artifact');
+DESCRIBE types;
+
+-- -------------------------------------------
+-- Populate and describe the sets table.
+-- -------------------------------------------
+
+INSERT INTO set(name, year) VALUES ('Beta', 1993);
+INSERT INTO set(name, year) VALUES ('Arabian Knights', 1993);
+INSERT INTO set(name, year) VALUES ('Antiquities', 1994);
+INSERT INTO set(name, year) VALUES ('3rd', 1994);
+INSERT INTO set(name, year) VALUES ('Legends', 1994);
+INSERT INTO set(name, year) VALUES ('Dark', 1994);
+INSERT INTO set(name, year) VALUES ('Fallen Empires', 1994);
+INSERT INTO set(name, year) VALUES ('4th', 1994);
+INSERT INTO set(name, year) VALUES ('Ice Age', 1994);
+INSERT INTO set(name, year) VALUES ('Homelands', 1995);
+INSERT INTO set(name, year) VALUES ('Alliances', 1996);
+INSERT INTO set(name, year) VALUES ('Mirage', 1996);
+INSERT INTO set(name, year) VALUES ('Visions', 1997);
+INSERT INTO set(name, year) VALUES ('5th', 1997);
+INSERT INTO set(name, year) VALUES ('Portal', 1997);
+INSERT INTO set(name, year) VALUES ('Weatherlight', 1997);
+INSERT INTO set(name, year) VALUES ('Tempest', 1997);
+INSERT INTO set(name, year) VALUES ('Stronghold', 1998);
+INSERT INTO set(name, year) VALUES ('Exodus', 1998);
+INSERT INTO set(name, year) VALUES ('Unglued', 1998);
+INSERT INTO set(name, year) VALUES ('Urza's Saga', 1998);
+INSERT INTO set(name, year) VALUES ('Urza's Legacy', 1999);
+INSERT INTO set(name, year) VALUES ('6th', 1999);
+INSERT INTO set(name, year) VALUES ('Urza's Destiny', 1999);
+INSERT INTO set(name, year) VALUES ('Starter 1999', 1999);
+INSERT INTO set(name, year) VALUES ('Mercadian Masques', 1999);
+INSERT INTO set(name, year) VALUES ('Nemesis', 2000);
+INSERT INTO set(name, year) VALUES ('Prophecy', 2000);
+INSERT INTO set(name, year) VALUES ('Invasion', 2000);
+INSERT INTO set(name, year) VALUES ('Planeshift', 2001);
+INSERT INTO set(name, year) VALUES ('7th', 2001);
+INSERT INTO set(name, year) VALUES ('Torment', 2002);
+INSERT INTO set(name, year) VALUES ('Judgment', 2002);
+INSERT INTO set(name, year) VALUES ('Onslaught', 2002);
+INSERT INTO set(name, year) VALUES ('Scourge', 2003);
+INSERT INTO set(name, year) VALUES ('8th', 2003);
+INSERT INTO set(name, year) VALUES ('Champions of Kamigawa', 2004);
+INSERT INTO set(name, year) VALUES ('Coldsnap', 2006);
+INSERT INTO set(name, year) VALUES ('10th', 2007);
+INSERT INTO set(name, year) VALUES ('Lorwyn', 2007);
+INSERT INTO set(name, year) VALUES ('11th', 2010);
+INSERT INTO set(name, year) VALUES ('12th', 2012);
+INSERT INTO set(name, year) VALUES ('13th', 2013);
+INSERT INTO set(name, year) VALUES ('15th', 2014);
+INSERT INTO set(name, year) VALUES ('Shadows over Innistrad', 2016);
+INSERT INTO set(name, year) VALUES ('19th', 2018);
+INSERT INTO set(name, year) VALUES ('15th', 2014);
+INSERT INTO set(name, year) VALUES ('15th', 2014);
+INSERT INTO set(name, year) VALUES ('Eldritch Moon', 2016);
+DESCRIBE sets;
+
+
+
+-- -------------------------------------------
+-- Populate and describe the cards table.
+-- -------------------------------------------
+
+INSERT INTO cards(name, color, type, set, condition)
+VALUES ('Abandon Reason', (SELECT color_id FROM color WHERE color.name='Red'), (SELECT type_id FROM type WHERE type.name='Instant'), (SELECT set_id FROM set WHERE set.name='Eldritch Moon'), (SELECT condition_id FROM condition WHERE condition.acronym='EX'));
+VALUES ('Abbey Gargoyle', (SELECT color_id FROM color WHERE color.name='White'), (SELECT type_id FROM type WHERE type.name='Creature), (SELECT set_id FROM set WHERE set.name='Homelands'), (SELECT condition_id FROM condition WHERE condition.acronym='EX'));
+DESCRIBE cards;
