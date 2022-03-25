@@ -7,10 +7,10 @@
   "author": "Aaron Thompson",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.2",
-    "express-handlebars": "^2.0.1",
-    "express-session": "^1.17.1",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
     "request": "^2.88.2"
