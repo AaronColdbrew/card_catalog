@@ -1,10 +1,76 @@
-<div class="module_inner_border">
+<table>
+    <tr>
+        <th colspan="5" class="th_title">{{title}}</th>
+    </tr>
+    <tr>
+        <th class="th_category">Name</th>
+        <th class="th_category">Color</th>
+        <th class="th_category">Type</th>
+        <th class="th_category">Edition</th>
+        <th class="th_category">Quality</th>
+        <th class="th_category"></th>
+    </tr>
+    <tr>
 
-    <!-- REPLACE WITH INTRODUCTORY TEXT & ANY OTHER NAVIGATION BUTTONS DESIRED -->
-    <p>Introductory Text. </p>
+        <!--<form method="post" id="post_new_card" class="icon_form">
+            <td><input type="text" id="form_card_name" name="card_name" placeholder="Llanowar Elves" required></td>
 
+            <td>
+                <select id="form_type" name="type">
+                    {{#each type}}
+                        <option value="{{type_id}}">{{name}}</option>
+                    {{/each}}
+                    <option value="NULL" SELECTED>NULL</option>
+                </select>
+            </td>
 
-</div>
+            <td>
+                <select id="form_color" name="color">
+                    {{#each color}}
+                        <option value="{{color_id}}">{{name}}</option>
+                    {{/each}}
+                    <option value="NULL" SELECTED>NULL</option>
+                </select>
+            </td>
 
+            <td>
+                <select id="form_edition" name="edition">
+                    {{#each edition}}
+                        <option value="{{edition_id}}">{{name}}</option>
+                    {{/each}}
+                    <option value="NULL" SELECTED>NULL</option>
+                </select>
+            </td>
 
+            <td>
+                &lt;!&ndash; ADD NEW SHIP &ndash;&gt;
+                <input type="submit" name="New" value="ADD">
 
+            </td>
+        </form>
+    </tr>
+-->
+    {{#each card}}
+
+        <tr>
+            <td>{{name}}</td>
+            <td>{{color}}</td>
+            <td>{{type}}</td>
+            <td>{{edition}} </td>
+
+           <!-- <td class="buttons">
+                &lt;!&ndash; UPDATE A SHIP&ndash;&gt;
+                <form method="post" id="post_update_ship" class="icon_form">
+                    <input type="hidden" name="card_id" value="{{card_id}}">
+                    <input type="submit" name="Edit" value="EDIT">
+                </form>
+
+                &lt;!&ndash; DELETE A SHIP &ndash;&gt;
+                <form method="post" id="post_delete_ship" class="icon_form">
+                    <input type="hidden" name="card_id" value="{{card_id}}">
+                    <input type="submit" name="Delete" value="&#10060">
+                </form>
+            </td>-->
+        </tr>
+    {{/each}}
+</table>
