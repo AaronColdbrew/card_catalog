@@ -1,16 +1,8 @@
 {
-  "name": "card_catalog",
-  "version": "1.0.0",
-  "description": "A database of M:TG cards",
-  "main": "script.js",
-  "scripts": {},
-  "author": "Aaron Thompson",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-    "express-session": "^1.17.2",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
     "request": "^2.88.2"

@@ -148,7 +148,7 @@ DESCRIBE edition;
 INSERT INTO card(name, color, type, edition, quality)
 VALUES ('Abandon Reason', (SELECT color_id FROM color WHERE color.name='Red'), (SELECT type_id FROM type WHERE type.name='Instant'), (SELECT edition_id FROM edition WHERE edition.name='Eldritch Moon'), (SELECT quality_id FROM quality WHERE quality.acronym='EX'));
 INSERT INTO card(name, color, type, edition, quality)
-VALUES ('Abbey Gargoyle', (SELECT color_id FROM color WHERE color.name='White'), (SELECT type_id FROM type WHERE type.name='Creature), (SELECT edition_id FROM edition WHERE edition.name='Homelands'), (SELECT quality_id FROM quality WHERE quality.acronym='EX'));
+VALUES ('Abbey Gargoyle', (SELECT color_id FROM color WHERE color.name='White'), (SELECT type_id FROM type WHERE type.name='Creature'), (SELECT edition_id FROM edition WHERE edition.name='Homelands'), (SELECT quality_id FROM quality WHERE quality.acronym='EX'));
 DESCRIBE card;
 
 

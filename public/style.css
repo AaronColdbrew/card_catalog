@@ -104,10 +104,9 @@ li.nav_content a {
 }
 
 /* This code handles the padding of the navigation buttons.*/
-a.nav_link {
+a.nav_link, a.nav_item {
     padding: 16px;
 }
-
 /* Formats the visible arrows that indicate a drop-down menu.*/
 span.arrow {
     padding-left: 5px;
